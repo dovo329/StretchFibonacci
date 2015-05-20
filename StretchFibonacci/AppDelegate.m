@@ -20,17 +20,17 @@
     int lastSeqNum = 0;
     int temp = 0;
     
-    while (seqNum <= searchNum) {
-        NSLog(@"seqNum==%d; lastSeqNum==%d; searchNum==%d", seqNum, lastSeqNum, searchNum);
-        if (seqNum == searchNum) {
-            NSLog(@"return yes");
+    while (lastSeqNum <= searchNum) {
+        //NSLog(@"seqNum==%d; lastSeqNum==%d; searchNum==%d", seqNum, lastSeqNum, searchNum);
+        if (lastSeqNum == searchNum) {
+            //NSLog(@"return yes");
             return true;
         }
         temp = seqNum;
         seqNum = lastSeqNum + seqNum;
         lastSeqNum = temp;
     }
-    NSLog(@"return no");
+    //NSLog(@"return no");
     return false;
 }
 
@@ -44,8 +44,10 @@
      
      @return YES if number is in Fibonacci Sequence, NO otherwise
      */
-    int searchNum = 234;
-    NSLog(@"%d %@ in the FibonacciSequence", searchNum, [self isInFibonacciSequence:searchNum] ? @"is indeed" : @"isn't");
+    NSArray *searchNumArr = @[@0, @1, @2, @3, @4, @5, @7, @8, @12, @13, @33, @34, @54, @55, @88, @89, @144, @145, @233, @234];
+    for (NSNumber *searchNum in searchNumArr) {
+        NSLog(@"%d %@ in the FibonacciSequence", [searchNum integerValue], [self isInFibonacciSequence:[searchNum integerValue]] ? @"is indeed" : @"isn't");
+    }
     //NSLog(@"%d %d in the FibonacciSequence", searchNum, [self isInFibonacciSequence:searchNum]);
     
     return YES;
